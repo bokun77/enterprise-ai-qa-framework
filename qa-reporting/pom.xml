@@ -13,4 +13,14 @@
 
     <artifactId>qa-reporting</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>io.github.bokun77</groupId>
+            <artifactId>qa-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+    </dependencies>
+
 </project>

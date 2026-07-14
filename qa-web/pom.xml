@@ -13,4 +13,19 @@
 
     <artifactId>qa-web</artifactId>
 
+    <dependencies>
+
+        <dependency>
+            <groupId>io.github.bokun77</groupId>
+            <artifactId>qa-core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+        </dependency>
+
+    </dependencies>
+
 </project>
