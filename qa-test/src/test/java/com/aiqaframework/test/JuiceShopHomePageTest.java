@@ -1,5 +1,6 @@
 package com.aiqaframework.test;
 
+import com.aiqaframework.core.TestConfig;
 import com.aiqaframework.web.WebDriverFactory;
 import com.aiqaframework.web.pages.JuiceShopHomePage;
 import org.openqa.selenium.WebDriver;
@@ -11,8 +12,6 @@ import static org.testng.Assert.assertEquals;
 
 /** Verifies the Juice Shop homepage loads successfully in a browser. */
 public class JuiceShopHomePageTest {
-
-    private static final String BASE_URI = "http://localhost:3000";
 
     private WebDriver driver;
 
@@ -28,11 +27,11 @@ public class JuiceShopHomePageTest {
         }
     }
 
-    @Test
+    @Test(groups = "ui")
     public void homePageLoadsWithExpectedTitle() {
         JuiceShopHomePage homePage = new JuiceShopHomePage(driver);
 
-        homePage.open(BASE_URI);
+        homePage.open(TestConfig.baseUri());
 
         assertEquals(homePage.getTitle(), "OWASP Juice Shop");
     }

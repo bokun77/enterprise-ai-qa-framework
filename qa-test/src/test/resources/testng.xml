@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="AI QA Framework Suite">
+
+    <test name="API Tests">
+        <classes>
+            <class name="com.aiqaframework.test.JuiceShopProductsApiTest"/>
+        </classes>
+    </test>
+
+    <test name="UI Tests">
+        <classes>
+            <class name="com.aiqaframework.test.JuiceShopHomePageTest"/>
+        </classes>
+    </test>
+
+</suite>
