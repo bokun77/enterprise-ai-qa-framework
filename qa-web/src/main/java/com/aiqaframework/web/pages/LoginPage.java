@@ -10,7 +10,6 @@ public class LoginPage extends BasePage {
     private static final By LOGIN_BUTTON = By.id("loginButton");
     private static final By ERROR_MESSAGE = By.className("error");
     private static final By LANGUAGE_SNACKBAR = By.cssSelector(".mat-mdc-snack-bar-label");
-    private static final By WELCOME_BANNER_CLOSE = By.cssSelector("button[aria-label='Close Welcome Banner']");
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -20,13 +19,6 @@ public class LoginPage extends BasePage {
         driver.get(baseUri + "/#/login");
         dismissWelcomeBanner();
         waitForInvisible(LANGUAGE_SNACKBAR);
-    }
-
-    private void dismissWelcomeBanner() {
-        try {
-            waitForClickable(WELCOME_BANNER_CLOSE).click();
-        } catch (org.openqa.selenium.TimeoutException ignored) {
-        }
     }
 
     public void login(String email, String password) {

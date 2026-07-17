@@ -11,6 +11,7 @@ import java.time.Duration;
 public abstract class BasePage {
 
     private static final Duration DEFAULT_TIMEOUT = Duration.ofSeconds(10);
+    private static final By WELCOME_BANNER_CLOSE = By.cssSelector("button[aria-label='Close Welcome Banner']");
 
     protected final WebDriver driver;
     private final WebDriverWait wait;
@@ -18,6 +19,13 @@ public abstract class BasePage {
     protected BasePage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, DEFAULT_TIMEOUT);
+    }
+
+    protected void dismissWelcomeBanner() {
+        try {
+            waitForClickable(WELCOME_BANNER_CLOSE).click();
+        } catch (org.openqa.selenium.TimeoutException ignored) {
+        }
     }
 
     protected WebElement waitForVisible(By locator) {
