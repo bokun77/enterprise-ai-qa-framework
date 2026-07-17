@@ -31,3 +31,14 @@ jobs:
 
       - name: Build
         run: mvn -B clean verify
+
+      - name: Upload test artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: qa-test-artifacts
+          path: |
+            qa-test/target/screenshots/
+            qa-test/target/qa-reports/execution-summary.txt
+          if-no-files-found: ignore
+          retention-days: 14
