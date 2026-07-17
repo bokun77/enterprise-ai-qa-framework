@@ -24,7 +24,7 @@ public class LoginPage extends BasePage {
     public void login(String email, String password) {
         waitForVisible(EMAIL_INPUT).sendKeys(email);
         driver.findElement(PASSWORD_INPUT).sendKeys(password);
-        waitForClickable(LOGIN_BUTTON).click();
+        clickWhenReady(LOGIN_BUTTON);
     }
 
     public String getErrorMessage() {

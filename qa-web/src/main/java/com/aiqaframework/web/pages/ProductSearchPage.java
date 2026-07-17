@@ -24,7 +24,7 @@ public class ProductSearchPage extends BasePage {
     }
 
     public void search(String term) {
-        waitForClickable(SEARCH_TOGGLE).click();
+        clickWhenReady(SEARCH_TOGGLE);
         waitForVisible(SEARCH_INPUT).sendKeys(term, Keys.ENTER);
     }
 
