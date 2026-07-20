@@ -36,7 +36,6 @@ public class LoginPage extends BasePage {
 
     public void waitForRedirectAwayFromLogin() {
         waitForUrlNotContaining("/login");
-        waitForClickable(ACCOUNT_MENU_BUTTON);
     }
 
     public boolean isLoggedIn() {
