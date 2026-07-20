@@ -17,6 +17,8 @@ public class LogoutTest extends BaseUiTest {
         loginPage.login(TestConfig.username(), TestConfig.password());
         loginPage.waitForRedirectAwayFromLogin();
 
+        assertTrue(loginPage.isLoggedIn());
+
         loginPage.logout();
 
         assertTrue(loginPage.isLoggedOut());
