@@ -13,6 +13,7 @@ public class ProductSearchPage extends BasePage {
     private static final By SEARCH_TOGGLE = By.cssSelector("button[aria-label='Open search']");
     private static final By SEARCH_INPUT = By.cssSelector("#searchQuery input");
     private static final By RESULT_NAMES = By.cssSelector("app-product .name");
+    private static final By PRODUCT_DETAILS_TRIGGER = By.cssSelector("section[aria-label='Click for more information about the product']");
     private static final By ADD_TO_BASKET_BUTTON = By.cssSelector("button[aria-label='Add to Basket']");
     private static final By CART_ITEM_COUNT = By.cssSelector("button[aria-label='Show the shopping cart'] .warn-notification");
     private static final By SNACKBAR = By.cssSelector(".mat-mdc-snack-bar-label");
@@ -38,6 +39,11 @@ public class ProductSearchPage extends BasePage {
             return List.of();
         }
         return driver.findElements(RESULT_NAMES).stream().map(WebElement::getText).toList();
+    }
+
+    public void openFirstResultDetails() {
+        waitForVisible(RESULT_NAMES);
+        clickWhenReady(PRODUCT_DETAILS_TRIGGER);
     }
 
     public void addFirstResultToCart() {
