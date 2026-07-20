@@ -11,6 +11,7 @@
             <class name="com.aiqaframework.test.JuiceShopLoginApiTest"/>
             <class name="com.aiqaframework.test.JuiceShopProductSearchApiTest"/>
             <class name="com.aiqaframework.test.JuiceShopProductDetailsApiTest"/>
+            <class name="com.aiqaframework.test.JuiceShopRegistrationApiTest"/>
         </classes>
     </test>
 
@@ -22,6 +23,7 @@
             <class name="com.aiqaframework.test.ProductSearchTest"/>
             <class name="com.aiqaframework.test.AddToCartTest"/>
             <class name="com.aiqaframework.test.ProductDetailsTest"/>
+            <class name="com.aiqaframework.test.RegistrationTest"/>
         </classes>
     </test>
 
