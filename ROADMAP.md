@@ -55,7 +55,21 @@ Milestones:
   - `RuleBasedFailureAnalyzer` classifies each failed test using fixed, keyword/regex-based rules against the failure message only (Selenium click-intercept/overlay wording, assertion wording, HTTP 4xx/5xx and API wording, login/auth/token wording, connection/timeout wording) — no AI provider dependency.
   - Fixed precedence order when a message matches more than one category: `UI_SYNCHRONIZATION` > `ASSERTION_FAILURE` > `API_FAILURE` > `AUTHENTICATION_FAILURE` > `ENVIRONMENT_FAILURE` > `UNKNOWN` — the first matching rule wins, and this order is covered by dedicated precedence tests.
   - `UnclassifiedFailureAnalyzer` (v0.1) remains as a distinct "not analyzed" fallback, separate from `RuleBasedFailureAnalyzer`'s "analyzed, no rule matched" `UNKNOWN`.
+- **qa-ai v0.3 — Failure Analysis Report Writer** (done):
+  - ✓ `FailureAnalysisReportWriter`
+  - ✓ Human-readable analysis report
+  - ✓ Deterministic report generation
+  - ✓ No AI provider dependency
+
+  `FailureAnalysisReportWriter` formats a `List<FailureAnalysis>` into a plain-text report (`format`) and writes it to a `qa-ai`-owned location, `target/qa-ai-reports/failure-analysis-report.txt` (`write`) — never into `qa-reporting`'s directory. It consumes only `qa-ai`'s own `FailureAnalysis` model, never reads `execution-summary.txt`, and never classifies failures itself, keeping reading/analysis/writing separate per ADR-0008. See [qa-ai/README.md](qa-ai/README.md) for the package layout and an example report.
 - **Failure Analyzer v1 (LLM-enhanced)** — not yet started and intentionally deferred. Replacing or augmenting rule-based classification with an AI/LLM provider requires resolving ADR-0008's Security Considerations (data handling, provider choice, retention policy) in a follow-up plan first; v0.2's rule-based classification is not a placeholder to be discarded but a durable fallback for cases an LLM can't confidently classify either.
+
+### Future
+
+- LLM analyzer adapter
+- AI-generated recommendations
+- Optional MCP integration for failure analysis
+- Historical trend analysis
 
 Future possibilities (not yet sequenced):
 
