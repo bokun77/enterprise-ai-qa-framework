@@ -11,6 +11,10 @@ public final class WebDriverFactory {
 
     public static WebDriver createChromeDriver() {
         ChromeOptions options = new ChromeOptions();
+        // Juice Shop hides the desktop nav (e.g. #navbarAccount) below Angular Material's
+        // ~960px breakpoint, so a fixed desktop-sized viewport is needed for reliable
+        // element visibility, especially under headless Chrome's narrow default viewport.
+        options.addArguments("--window-size=1600,1000");
 
         if (Boolean.parseBoolean(System.getenv("CI"))) {
             options.addArguments("--headless=new");

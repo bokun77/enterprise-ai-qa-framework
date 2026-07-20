@@ -43,6 +43,7 @@ public class LoginPage extends BasePage {
     }
 
     public void logout() {
+        isLoggedIn();
         clickWhenReady(ACCOUNT_MENU_BUTTON);
         clickWhenReady(LOGOUT_BUTTON);
     }
